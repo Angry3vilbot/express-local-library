@@ -16,7 +16,9 @@ const app = express();
 
 app.use(helmet());
 
-const mongoDB = process.env.DB_LINK
+const dev_db_url = "mongodb+srv://admin:admin@cluster0.xazz4n8.mongodb.net/?retryWrites=true&w=majority"
+
+const mongoDB = process.env.DB_LINK || dev_db_url
 mongoose.connect(mongoDB)
 
 const db = mongoose.connection
